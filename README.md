@@ -20,4 +20,4 @@ ZAgent目前支持KVM-QEMU、Docker、VirtualBox、VmWare、阿里云、华为�
 
 ### [服务集成](integration/index.md)
 
-### [集成API](api/index.md)
+### [API文档](api/index.md)
