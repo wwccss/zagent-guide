@@ -2,7 +2,7 @@
 
 #### 请求服务器，管理测试任务
 
-- [POST 创建测试任务](https://zagent-server.zentao.net/docs#/paths/~1api~1v1~1client~1task~1create/post)
+- [POST 创建测试任务](https://zagent-server.zentao.net/docs#/paths/~1api~1v1~1client~1task~1create/post?_blank)
 - [GET 列出测试任务](https://zagent-server.zentao.net/docs#/paths/~1api~1v1~1client~1task~1list/get)
 - [GET 获取测试任务](https://zagent-server.zentao.net/docs#/paths/~1api~1v1~1client~1task~1{id}/get)
 - [PUT 更新测试任务](https://zagent-server.zentao.net/docs#/paths/~1api~1v1~1client~1task~1{id}/put)
