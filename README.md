@@ -12,8 +12,6 @@ ZAgent是禅道开源的测试调度平台，它使用虚拟化技术，提供�
 
 ZAgent目前支持KVM-QEMU、Docker、VirtualBox、VmWare、阿里云、华为云几种流行的虚拟机和容器平台。
 
-14. 
-
 ## ZAgent指南
 
 ### [工作方式](other/work.md)
