@@ -1,12 +1,12 @@
 ## 服务集成
 
-### [1. 基础数据准备](1-data-basic.md)
+请按照以下文档，完成您的管理系统同ZAgent的对接。
+
+### [1. 基础数据准备](1-basic-data.md)
 
 ### [2. 宿主机管理](2-host-data.md)
 
-### [3. 宿主机注册](3-host-register.md)
+### [3. 虚拟机管理](3-vm-data.md)
 
-### [4. 虚拟机管理](4-vm-data.md)
-
-### [5. 虚拟机注册](5-vm-register.md)
+### [4. 接口实现](4-interface.md)
 
