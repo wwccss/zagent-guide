@@ -17,9 +17,9 @@
    ./zagent-host -t host -s http://服务器IP:服务器端口 -i 本机IP -p 本机端口
   ```
 
-4. 启动前面安装的虚拟机，在用户根目录下创建kvm文件夹，得到形如c:\Users\aaron\kvm的目录；
+4. 启动前面安装的Win10虚拟机，在用户根目录下创建kvm文件夹，得到形如c:\Users\aaron\kvm的目录；
 5. 复制zagent-vm文件到c:\Users\aaron\kvm\agent目录；
-6. 创建以下内容的文件，保存为c:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\zagent.bat。Windows StartUp目录的可执行文件，在系统启动时会自动被运行。
+6. 复制以下内容，保存为c:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\zagent.bat。Windows StartUp目录下的zagent-vm代理程序，在系统启动时会被自动运行。
 
   ```
   @echo on
