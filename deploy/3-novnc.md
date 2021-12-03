@@ -4,21 +4,21 @@
 
 1. 执行以下命令，获取代理项目的代码；
 
-​      `git clone https://github.com/novnc/websockify.git`
+   `git clone https://github.com/novnc/websockify.git`
 
 2. 在websockify同级目录，新建token文件夹；
 
-3. 在token文件夹中，新建如下格式的配置文件，其中：
+3. 在token文件夹中，新建如下格式的配置文件；
+
+   `vm01: 192.168.1.215:5904`
 
    vm01：用于访问虚拟机的token；
-   
-   192.168.1.215：宿主机的IP地址；
-   
-   5901：虚拟机的VNC端口号。
-   
-   *注：由于QEMU/KVM虚拟机的VNC服务端口是自增的，在ZAgent启动宿主机代理时，我们使用代码来自动创建20个token文件，完成端口5901-5920到token的映射，并使用一个Map缓存起来。当宿主机代理收到创建虚拟机的请求时，可根据VNC的端口返回其对应的token。*
 
-​      `vm01: 192.168.1.215:5904`
+   192.168.1.215：宿主机的IP地址；
+
+   5901：虚拟机的VNC端口号。
+
+   *注：由于QEMU/KVM虚拟机的VNC服务端口是自增的，在ZAgent启动宿主机代理时，我们使用代码来自动创建20个token文件，完成端口5901-5920到token的映射，并使用一个Map缓存起来。当宿主机代理收到创建虚拟机的请求时，可根据VNC的端口返回其对应的token。*
 
 4. 使用virt-manager，修改虚拟机远程桌面的类型为VNC Server，地址（Address）为所有接口（All interface），端口为自动（Auto）；
 
