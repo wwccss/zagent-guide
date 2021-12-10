@@ -40,18 +40,18 @@ kvm          根目录
 - 在虚拟机中，安装好Chrome浏览器和测试相关软件；
 - 使用以下命令，新建一个用于保存工具的共享磁盘；
 
-```apache
-qemu-img create -f qcow2 -o cluster_size=2M kvm/share/tools.qcow2 10G
-```
+   ```apache
+   qemu-img create -f qcow2 -o cluster_size=2M kvm/share/tools.qcow2 10G
+   ```
 
 - 复制工具和文件到该共享磁盘，挂载共享磁盘到虚拟机；
 - 移除该虚拟机，注意在确认对话框中，请选择“不删除相关磁盘文件”；
 - 移动虚机主磁盘文件到基础镜像目录，如kvm/base/windows/win10。
 - 执行以下命令，以上述基础镜像作为BackingFile，创建新的虚拟机磁盘；
 
-```awk
-qemu-img create -f qcow2 -o cluster_size=2M,backing_file=kvm/base/windows/win10/pro-x64-zh_cn.qcow2 kvm/image/test-win10-pro-x64-zh_cn-01.qcow2 50G
-```
+   ```
+   qemu-img create -f qcow2 -o cluster_size=2M,backing_file=kvm/base/windows/win10/pro-x64-zh_cn.qcow2 kvm/image/test-win10-pro-x64-zh_cn-01.qcow2 50G
+   ```
 
 - 打开qemu-manager，新建测试虚拟机，挂在新创建的虚拟机磁盘和共享磁盘。
 
@@ -59,9 +59,9 @@ qemu-img create -f qcow2 -o cluster_size=2M,backing_file=kvm/base/windows/win10/
 
 - 导出虚拟机XML配置文件；
 
-```stata
-virsh dumpxml test-win10-pro-x64-zh_cn > kvm/xml/test-win10-pro-x64-zh_cn.xml
-```
+   ```
+   virsh dumpxml test-win10-pro-x64-zh_cn > kvm/xml/test-win10-pro-x64-zh_cn.xml
+   ```
 
 - 修改XML配置文件中的以下字段：
 
@@ -74,38 +74,38 @@ virsh dumpxml test-win10-pro-x64-zh_cn > kvm/xml/test-win10-pro-x64-zh_cn.xml
 
 - 在第1块disk的Element中，加入以下BackingFile有关的内容：
 
-```
-<backingStore type="file" index="2">
-   <format type="qcow2"/>
-   <source file="/home/aaron/kvm/base/windows/win10/pro-x64-zh_cn.qcow2"/> 
-<backingStore/>
-```
+   ```
+   <backingStore type="file" index="2">
+      <format type="qcow2"/>
+      <source file="/home/aaron/kvm/base/windows/win10/pro-x64-zh_cn.qcow2"/> 
+   <backingStore/>
+   ```
 
 - 如需要用页面VNC访问虚拟机桌面，找到XML的graphics元素，修改成以下内容；
 
-```abnf
-<graphics type="vnc" port="-1" autoport="yes" listen="0.0.0.0" passwd="P2ssw0rd">
-  <listen type="address" address="0.0.0.0"/>
-</graphics>
-```
+   ```abnf
+   <graphics type="vnc" port="-1" autoport="yes" listen="0.0.0.0" passwd="P2ssw0rd">
+     <listen type="address" address="0.0.0.0"/>
+   </graphics>
+   ```
 
 - 使用以下命令定义虚拟机；
 
-```awk
-virsh define kvm /xml/test-win10-pro-x64-zh_cn.xml
-```
+   ```
+   virsh define kvm /xml/test-win10-pro-x64-zh_cn.xml
+   ```
 
 - 使用以下命令启动虚拟机；
 
-```powershell
-virsh start test-win10-pro-x64-zh_cn
-```
+   ```powershell
+   virsh start test-win10-pro-x64-zh_cn
+   ```
 
 - 使用以下命令获取虚拟机的VNC端口编号，在VNC软件中使用”5900+该数字“的端口，访问虚拟机远程桌面；
 
-```stata
-virsh vncdisplay test-win10-pro-x64-zh_cn
-```
+   ```stata
+   virsh vncdisplay test-win10-pro-x64-zh_cn
+   ```
 
 3. ##### 最后，我们介绍推荐的第三种方法，在代码中使用libvirt*接口来管理虚拟机。禅道基于GO语言的实现，请见[这里](https://github.com/easysoft/zagent/blob/main/internal/agent-host/service/kvm/libvirt.go) 。
 

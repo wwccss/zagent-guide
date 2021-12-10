@@ -13,17 +13,16 @@ vmx
 
 ##### 2. 安装虚拟化软件
 
-```maxima
+```
 sudo apt-get install qemu-kvm libvirt-daemon-system libvirt-clients qemu virt-manager bridge-utils
 sudo service libvirtd restart
 ```
 
 老的Ubuntu系统，请用以下命令替换。注意libvirt-daemon-system、libvirt-clients换成libvirt-bin。
 
-```mipsasm
+```
 sudo apt-get install qemu-kvm libvirt-bin qemu virt-manager bridge-utils 
-sudo service libvirt-bin 
-restart
+sudo service libvirt-bin restart
 ```
 
 ##### 3. 下载系统和驱动
