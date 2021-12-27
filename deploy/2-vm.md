@@ -44,7 +44,7 @@ kvm          根目录
    qemu-img create -f qcow2 -o cluster_size=2M kvm/share/tools.qcow2 10G
    ```
 
-- 复制工具和文件到该共享磁盘，挂载共享磁盘到虚拟机；
+- 挂载共享磁盘到虚拟机,复制工具和文件到该共享磁盘；
 - 移除该虚拟机，注意在确认对话框中，请选择“不删除相关磁盘文件”；
 - 移动虚机主磁盘文件到基础镜像目录，如kvm/base/windows/win10。
 - 执行以下命令，以上述基础镜像作为BackingFile，创建新的虚拟机磁盘；
