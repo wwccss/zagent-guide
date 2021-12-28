@@ -14,7 +14,7 @@ vmx
 ##### 2. 安装虚拟化软件
 
 ```
-sudo apt-get install qemu-kvm libvirt-daemon-system libvirt-clients qemu virt-manager bridge-utils
+sudo apt-get install qemu-kvm libvirt-daemon-system libvirt-clients libvirt-dev qemu virt-manager bridge-utils
 sudo service libvirtd restart
 ```
 
