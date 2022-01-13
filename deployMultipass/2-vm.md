@@ -1,8 +1,4 @@
-# 使用multipass部署虚拟机
-### 创建虚拟机
-```
-multipass launch
-```
+# 准备multipass虚拟机基础镜像
 ### 进入虚拟机
 ```
 multipass shell test1
@@ -12,7 +8,7 @@ multipass shell test1
 sudo cp -ra /etc/apt/sources.list /etc/apt/sources.list.bak
 sudo vim /etc/apt/sources.list
 ```
-#### 用以下内容替换
+##### 用以下内容替换
 ```
 deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
     deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
@@ -29,7 +25,7 @@ deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted univers
 deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
 deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
 ```
-####  更新缓存和升级
+##### 更新缓存和升级
 ```
 sudo apt-get update
 sudo apt-get upgrade
@@ -39,31 +35,31 @@ sudo apt-get upgrade
 ```
 sudo apt install ubuntu-desktop xrdp
 ```
-#### 设置用户帐号密码
+#### 设置用户帐号密码，便于后续的桌面访问
 ```
 sudo passwd ubuntu
 ```
 ### 3. 虚拟机安装配置 vncserver
-#### 安装vnc服务
+##### 安装vnc服务
 ```
 sudo apt-get install tightvncserver
 ```
 
-#### 启动vnc服务（注意：不启动的话，下面所需的配置文件并不会生成）
+##### 启动vnc服务（注意：不启动的话，下面所需的配置文件并不会生成）
 ```
 vncserver
 ```
-#### 备份vncserver 原配置文件
+##### 备份vncserver 原配置文件
 ```
 sudo cp  ~/.vnc/xstartup ~/.vnc/xstartup.bak
 ```
 
-#### 替换内容
+##### 编辑配置文件
 ```
 sudo vim ~/.vnc/xstartup
 ```
 
-#### 用以下内容替换
+##### 用以下内容替换
 ```
 #!/bin/sh                                                                       
 
@@ -80,21 +76,21 @@ vncconfig -iconic &
 #nautilus &   
 gnome-session --session=gnome-flashback-metacity --disable-acceleration-check &
 ```
-#### 重新启动 vncserver
+##### 重新启动 vncserver
 ```
 vncserver
 ```
-#### 灰屛解决
+##### 灰屛解决
 ```
-sudo chmod 777 ~/.vnc/xstartup
+sudo chmod +x ~/.vnc/xstartup
 sudo apt-get install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal
 ```
 
-### 开机启动
+##### 设置vncserver开机启动
 ```
 sudo vim  /etc/init.d/tightvncserver
 ```
-#### 换成你自己的用户名
+##### 换成你自己的用户名
 ```
 #!/bin/sh
 ### BEGIN INIT INFO
@@ -140,13 +136,8 @@ cd /etc/init.d
 sudo chmod 777 tightvncserver
 sudo update-rc.d tightvncserver defaults
 ```
-### 安装好测试工具和文件
-假设我们在用户的工作目录中，建立了以下目录。
+### 4. 安装好测试工具和文件
 
-```crmsh
-multipass         根目录
-   img       存放光盘镜像
-```
-### 复制镜像
+### 5. 复制镜像
 镜像位置在/var/snap/multipass/common/data/multipassd/vault/instances/test1
 复制到 img目录下
