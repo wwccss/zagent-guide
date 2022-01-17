@@ -10,7 +10,7 @@ ZAgent是禅道开源的软件自动化测试调度平台，它借助虚拟化�
 
 ### ZAgent支持哪些虚拟化平台
 
-ZAgent目前支持KVM-QEMU、Docker、VirtualBox、VmWare、阿里云、华为云几种流行的虚拟机和容器平台。
+ZAgent目前支持KVM-QEMU、Docker、VirtualBox、VmWare、MultiPass、阿里云、华为云几种流行的虚拟机和容器平台。
 
 ## ZAgent指南
 

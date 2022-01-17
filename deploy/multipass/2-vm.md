@@ -1,7 +1,7 @@
 # 准备multipass虚拟机基础镜像
 ### 进入虚拟机
 ```
-multipass shell test1
+multipass shell ubunut-1
 ```
 ### 1. ubuntu换源
 ```
@@ -31,7 +31,7 @@ sudo apt-get update
 sudo apt-get upgrade
 ```
 
-### 2. 安装桌面
+### 2. 安装桌面、协议
 ```
 sudo apt install ubuntu-desktop xrdp
 ```
@@ -39,7 +39,7 @@ sudo apt install ubuntu-desktop xrdp
 ```
 sudo passwd ubuntu
 ```
-### 3. 虚拟机安装配置 vncserver
+### 3. 安装配置 vncserver
 ##### 安装vnc服务
 ```
 sudo apt-get install tightvncserver
@@ -90,7 +90,7 @@ sudo apt-get install gnome-panel gnome-settings-daemon metacity nautilus gnome-t
 ```
 sudo vim  /etc/init.d/tightvncserver
 ```
-##### 换成你自己的用户名
+##### 将以下脚本中export USERR=‘ubunut'的 ubuntu 换成你自己的用户名,复制到tightvncserver
 ```
 #!/bin/sh
 ### BEGIN INIT INFO
@@ -131,13 +131,14 @@ esac
 exit 0
 
 ```
+##### 赋予权限是脚本生效
 ```
 cd /etc/init.d
-sudo chmod 777 tightvncserver
+sudo chmod +x tightvncserver
 sudo update-rc.d tightvncserver defaults
 ```
 ### 4. 安装好测试工具和文件
 
 ### 5. 复制镜像
-镜像位置在/var/snap/multipass/common/data/multipassd/vault/instances/test1
+镜像位置在/var/snap/multipass/common/data/multipassd/vault/instances/ubuntu-1
 复制到 img目录下
