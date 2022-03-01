@@ -20,9 +20,9 @@
 
    *注：由于QEMU/KVM虚拟机的VNC服务端口是自增的，在ZAgent启动宿主机代理时，我们使用代码来自动创建10个token文件，完成端口5901-5910到token的映射，并使用一个Map缓存起来。当宿主机代理收到创建虚拟机的请求时，可根据VNC的端口返回其对应的token。具体代码实现可参考[这里](https://github.com/easysoft/zagent/blob/main/internal/agent-host/service/setup.go)。*
 
-4. 使用virt-manager，修改虚拟机远程桌面的类型为VNC Server，地址（Address）为所有接口（All interface），端口为自动（Auto）；
+4. kvm下使用virt-manager，修改虚拟机远程桌面的类型为VNC Server，地址（Address）为所有接口（All interface），端口为自动（Auto）；
 
-   ![image-20211203093528957](3-novnc.assets/image-20211203093528957.png)
+   ![image-20211203093528957](3-novnc.assets/image-20211203093528957.png); multipass下部署vncserver，见[第二部](multipass/2-vm.md)
 
 5. 执行以下命令，启动websockify服务。6080为代理端口，../token/为端口转发配置文件所在的目录；
 
