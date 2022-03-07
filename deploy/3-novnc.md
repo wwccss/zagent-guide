@@ -10,9 +10,9 @@
 
 3. 在token文件夹中，新建如下格式的配置文件；
 
-   `vm01: 192.168.1.215:5904`
+   `token_of_vm01: 192.168.1.215:5904`
 
-   - vm01：用于访问虚拟机的token；
+   - token_of_vm01：用于访问虚拟机的token；
 
    - 192.168.1.215：宿主机的IP地址；
 
@@ -32,7 +32,7 @@
 
 1. 执行以下命令，获取远程桌面项目的代码；
 
-   git clone https://github.com/novnc/noVNC.git ~/kvm/noVNC
+   `git clone https://github.com/novnc/noVNC.git ~/kvm/noVNC`
 
 2. 将项目中的文件拷贝到Web服务器中，或使用以下步骤安装一个静态服务器；
 
@@ -50,7 +50,7 @@
 
    - 端口：websockify代理的端口号；
 
-   - 路径：websockify?token=vm01，其中vm01为上述token配置文件中的第一列。
+   - 路径：websockify?token=token_of_vm01，其中token_of_vm01为上述token配置文件中的第一列。
 
    ![01](3-novnc.assets/01-8514481.jpeg)
 
@@ -58,4 +58,4 @@
 
 4. 另外，您也可使用简化版的vnc_lite.html页面来访问桌面。
 
-   `http://<宿主机IP地址>:4000/vnc_lite.html?host=192.168.1.215&port=6080&path=websockify/?token=vm01`
+   `http://<宿主机IP地址>:4000/vnc_lite.html?host=192.168.1.215&port=6080&path=websockify/?token=token_of_vm01`
