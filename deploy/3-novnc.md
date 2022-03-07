@@ -32,13 +32,13 @@
 
 1. 执行以下命令，获取远程桌面项目的代码；
 
-   `https://github.com/novnc/noVNC.git`
+   git clone https://github.com/novnc/noVNC.git ~/kvm/noVNC
 
 2. 将项目中的文件拷贝到Web服务器中，或使用以下步骤安装一个静态服务器；
 
    - 从[这里](https://nodejs.org/zh-cn/download/)下载并安装node.js环境；
    - 执行npm install -g light-server安装服务器；
-   - 执行light-server -s noVNC启动noVNC服务，默认端口为4000。
+   - 执行light-server -s ~/kvm/nodVNC 启动noVNC服务，默认端口为4000。
 
 ## 访问远程桌面
 
